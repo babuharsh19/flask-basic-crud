@@ -34,12 +34,12 @@ class Edittutor(Form):
     company = StringField('Enter your company : ',validators = [DataRequired()])
     submit = SubmitField('Submit')
 
-class Candidates(db.Model):
-    id = db.Column(db.Integer(),nullable=False,primary_key = True)
-    name = db.Column(db.String(25),nullable=False)
-    age = db.Column(db.Integer(),nullable=False)
-    program = db.Column(db.String(40),nullable=False)
-    work = db.Column(db.String(40),nullable=False)
+# class Candidates(db.Model):
+#     id = db.Column(db.Integer(),nullable=False,primary_key = True)
+#     name = db.Column(db.String(25),nullable=False)
+#     age = db.Column(db.Integer(),nullable=False)
+#     program = db.Column(db.String(40),nullable=False)
+#     work = db.Column(db.String(40),nullable=False)
 
 class Tutors(db.Model):
     id = db.Column(db.Integer(),nullable=False,primary_key = True)
