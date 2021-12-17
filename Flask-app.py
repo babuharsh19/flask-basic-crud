@@ -85,6 +85,7 @@ def delTutor():
         del_data = Tutors.query.get(id=id)
         db.session.delete(del_data)
         db.session.commit()
+        flash('record deleted successfully ')
         return redirect(url_for('view-tutor'))
     return render_template('del-tutor.html',deltutor=deltutor)
 
@@ -101,8 +102,10 @@ def EditTutor():
         update_data.experience = experience
         update_data.company = company
         db.session.commit()
+        flash('Tutor edited successfully')
         return redirect(url_for('view-tutor'))
-    return render_template('edit-tutor',edittutor=edittutor)
+    tutors = Tutors.query.all()
+    return render_template('edit-tutor.html',tutors=tutors,edittutor=edittutor)
 
 
 app.run(debug=True)

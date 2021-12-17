@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %} Edit Tutor {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="tutor">
+        <div class="col md-12">
+            <div class="jumbotron p-3">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissable" style="color: red;" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+    {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+<table class="table table-hover table-dark" cellspacing="17">
+    <caption style="color: red;">Tutors Details</caption>
+ 
+    <tr style="color: blue;">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Batches</th>
+        <th>Experience</th>
+        <th>Company</th>
+
+    </tr>
+
+   {% for tutor in tutors %}
+    <tr>
+        <td>{{tutor.id}}</td>
+        <td>{{tutor.name}}</td>
+        <td>{{tutor.batches}}</td>
+        <td>{{tutor.experience}}</td>
+        <td>{{tutor.company}}</td>
+    </tr>
+                   <!-- Modal Edit Employee-->   
+
+             <h4>Update Information</h4>
+             {{edittutor.id.label}}{{edittutor.id}}
+             <br><br>
+             {{edittutor.batches.label}}{{edittutor.batches}}
+             <br><br>
+             {{edittutor.experience.label}}{{edittutor.experience}}
+             <br><br>
+             {{edittutor.company.label}}{{edittutor.company}}
+             <br><br>
+            {{edittutor.submit}}
+                     {% endfor %}
+</table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
