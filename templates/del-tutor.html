@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+{% block title %}Delete Tutor{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <h2>Delete a Tutor</h2>
+    <form method = "post">
+        {{deltutor.id.label}}{{deltutor.id}}
+        {{deltutor.submit}}
+    </form>
+</div>
+{% endblock %}

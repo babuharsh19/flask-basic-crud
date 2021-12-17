@@ -48,7 +48,7 @@ class Tutors(db.Model):
     experience= db.Column(db.String(40),nullable=False)
     company = db.Column(db.String(40),nullable=False)
 
-#db.create_all()
+db.create_all()
 
 @app.route('/',methods=['GET', 'POST'])
 def index():
