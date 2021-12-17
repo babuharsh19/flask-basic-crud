@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+{% block title %}Add a Tutor{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <h2>Add a Tutor</h2>
+
+<form method="POST">
+    <p>
+    {{addtutor.name.label}}{{addtutor.name}}
+    <br>
+    <br>
+    {{addtutor.batches.label}}{{addtutor.batches}}
+    <br>
+    <br>
+    {{addtutor.experience.label}}{{addtutor.experience}}
+    <br>
+    <br>
+    {{addtutor.company.label}}{{addtutor.company}}
+    <br>
+    <br>
+    {{addtutor.submit}}
+    <br>
+    {% with messages = get_flashed_messages() %}
+ 
+    {% if messages %}
+
+    {% for message in messages %}
+
+    <div class="alert alert-success alert-dismissable" style="color: red;" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+
+            <span aria-hidden="true">x</span>
+
+        </button>
+
+
+    {{message}}
+
+
+    </div>
+
+
+    {% endfor %}
+
+    {% endif %}
+    {% endwith %}
+
+</p>
+</form>
+</div>
+{% endblock %}

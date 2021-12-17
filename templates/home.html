@@ -1,0 +1,9 @@
+{%extends 'base.html' %}
+{%include 'header.html' %}
+{%block title %}Home{%endblock %}
+{%block content %}
+<form method="Post">
+    <h1>{{homeform.choice.label}}{{homeform.choice}} {{homeform.submit()}}</h1>
+</form>
+
+{% endblock %}
