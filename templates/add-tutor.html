@@ -2,10 +2,22 @@
 {% include 'header.html' %}
 {% block title %}Add a Tutor{% endblock %}
 {% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissable" style="color: red;" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">x</span>
+    </button>
+{{message}}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 <div class="jumbotron">
     <h2>Add a Tutor</h2>
-
-<form method="GET">
+<form method="POST">
+    {{ addtutor.hidden_tag() }}
     <p>
     {{addtutor.name.label}}{{addtutor.name}}
     <br>
@@ -21,21 +33,37 @@
     <br>
     {{addtutor.submit}}
     <br>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-success alert-dismissable" style="color: red;" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="close">
-            <span aria-hidden="true">x</span>
-        </button>
-    {{message}}
-    </div>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
-
-
 </p>
 </form>
+</div>
+<div class="container">
+    <div class="tutor">
+        <div class="col md-12">
+            <div class="jumbotron p-3">
+<table class="table table-hover table-dark" cellspacing="17">
+    <caption style="color: red;">Tutors Details</caption>
+ 
+    <tr style="color: blue;">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Batches</th>
+        <th>Experience</th>
+        <th>Company</th>
+
+    </tr>
+
+   {% for tutor in tutors %}
+    <tr>
+        <td>{{tutor.id}}</td>
+        <td>{{tutor.name}}</td>
+        <td>{{tutor.batches}}</td>
+        <td>{{tutor.experience}}</td>
+        <td>{{tutor.company}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</div>
+</div>
 </div>
 {% endblock %}

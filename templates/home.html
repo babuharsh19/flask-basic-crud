@@ -2,6 +2,18 @@
 {%include 'header.html' %}
 {%block title %}Home{%endblock %}
 {%block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissable" style="color: red;" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">x</span>
+    </button>
+{{message}}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 <form method="Post">
     <h1>{{homeform.choice.label}}{{homeform.choice}} {{homeform.submit()}}</h1>
 </form>
