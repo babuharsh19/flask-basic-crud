@@ -52,13 +52,11 @@ class Tutors(db.Model):
 
 db.create_all()
 
-@app.route('/',methods=['GET', 'POST'])
+@app.route('/home',methods=['GET', 'POST'])
 def index():
     homeform = Homeform()
     if homeform.validate():
         session['choice'] = homeform.choice.data
-        choice = homeform.choice.select
-        flash(choice)
     return render_template('home.html',homeform=homeform)
 
 @app.route('/view-tutor',methods=['GET', 'POST'])
